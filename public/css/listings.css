@@ -1,0 +1,94 @@
+/* FILTER BAR */
+#topBar {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 1rem 0;
+  border-bottom: 1px solid #ddd;
+  font-weight: bolder;
+}
+
+#topBar::-webkit-scrollbar {
+  display: none;
+}
+
+.filter {
+  text-align: center;
+  opacity: 0.55;
+  transition: 0.3s ease;
+  text-decoration: none;
+  color: #333;
+}
+
+.filter.active {
+  color: red;
+  font-weight: bold;
+  opacity: 1;
+}
+
+.filter:hover {
+  opacity: 1;
+  transform: translateY(-3px);
+}
+
+.filter p {
+  font-size: 0.8rem;
+  margin-top: 0.3rem;
+}
+
+/* OFFER TOGGLE */
+#offerBox {
+  display: flex;
+  margin-left: auto;
+  align-items: center;
+  gap: 0.7rem;
+  border: 1px solid #ccc;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+}
+
+.offer-label {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #444;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.offer-active {
+  color: #d62300;
+}
+
+.offer-badge {
+  background: #ffeceb;
+  color: #d62300;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  margin-left: 6px;
+}
+
+/* PRICE  */
+.price-box {
+  line-height: 1.6;
+}
+
+.old-price {
+  text-decoration: line-through;
+  color: gray;
+  margin-right: 6px;
+}
+
+.new-price {
+  font-weight: bold;
+  color: #ff385c;
+}
+
+.offers-text {
+  font-size: 0.85rem;
+  color: #0f9d58;
+  margin-left: 5px;
+}
+  

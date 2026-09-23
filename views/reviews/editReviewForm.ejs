@@ -1,0 +1,47 @@
+<% layout("/layouts/boilerplate") %>
+
+  <div class="container mt-5">
+    <h3 class="text-center mb-4">Edit Your Review</h3>
+
+    <div class="row justify-content-center">
+      <div class="col-lg-6 col-md-8 col-sm-10">
+
+        <form id="editReviewForm" action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=PUT"
+          method="POST" class="p-4 bg-white rounded-4 shadow-sm">
+
+          <label class="fw-semibold mb-1">Rating</label>
+          <fieldset class="starability-slot mb-3">
+            <input type="radio" id="no-rate" class="input-no-rate" name="review[rating]" value="0" checked />
+            <input type="radio" id="rate1" name="review[rating]" value="1" /><label for="rate1">1</label>
+            <input type="radio" id="rate2" name="review[rating]" value="2" /><label for="rate2">2</label>
+            <input type="radio" id="rate3" name="review[rating]" value="3" /><label for="rate3">3</label>
+            <input type="radio" id="rate4" name="review[rating]" value="4" /><label for="rate4">4</label>
+            <input type="radio" id="rate5" name="review[rating]" value="5" /><label for="rate5">5</label>
+          </fieldset>
+
+          <label class="fw-semibold mb-1">Comment</label>
+          <textarea name="review[comment]" class="form-control mb-3" rows="4" required><%= review.comment 
+      %></textarea>
+
+          <button class="btn btn-dark w-100 rounded-pill">
+            Update Review
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById("editReviewForm");
+
+    form.addEventListener("submit", function (e) {
+      const rating = document.querySelector(
+        'input[name="review[rating]"]:checked'
+      ).value;
+
+      if (rating === "0") {
+        e.preventDefault();
+        alert("Please select a rating before submitt");
+      }
+    });
+  </script>

@@ -1,0 +1,148 @@
+body {
+    font-family: "Plus Jakarta Sans", sans-serif !important;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.container{
+    flex: 1;
+}
+
+.navbar {
+    height: 5rem;
+    background-color: white;
+}
+
+.fa-compass {
+    color: #fe424d;
+    font-size: 2rem;
+}
+
+.nav-link {
+    color: #222222 !important;
+}
+
+
+/* Footer */
+.f-info {
+    background-color: #ebebeb;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.f-info-social {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem; 
+}
+
+
+.f-info-social a {
+    text-decoration: none;
+   
+}
+
+.f-info-social a i {
+    font-size: 1.5rem;
+    color: #555;
+    background: transparent;
+   
+    transition: all 0.3s ease;
+}
+
+.f-info-social a:hover i {
+    background-color: #fe424d;
+    color: #fff;
+    transform: translateY(-3px);
+}
+
+.f-info-brand {
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.f-info-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.f-info-links a {
+    text-decoration: none;
+    color: #222;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.f-info-links a:hover {
+    color: #fe424d;
+    text-decoration: underline;
+}
+
+/* Cards */
+.listing-card {
+    border: none !important;
+    margin-bottom: 2rem;
+}
+
+.card-img-top {
+    border-radius: 1rem !important;
+    width: 100% !important;
+    object-fit: cover !important;
+}
+
+.card-body {
+    padding: 1.5rem !important;
+}
+
+
+
+.card-title {
+    margin-bottom: 0.5rem;
+}
+
+.car-text p {
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.5;
+    
+}
+
+ul li {
+    margin-bottom: 0.4rem;
+}
+
+.listing-link {
+    text-decoration: none;
+}
+
+/* Card Effect */
+.card-img-overlay {
+    opacity: 0;
+}
+.card-img-overlay:hover {
+    opacity: 0.2;
+    background-color: white;
+}
+
+.add-btn {
+    background-color: #fe424d !important;
+    border: none !important;
+}
+
+
+/* Show Pages */
+.show-img {
+    height: 50vh;
+}
+
+/* map */
+#map {
+     height: 400px;
+     height: 200px;
+      border-radius: 10px;
+
+}

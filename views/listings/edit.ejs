@@ -1,0 +1,108 @@
+<% layout('layouts/boilerplate') %>
+
+  <div class="container mt-5">
+
+    <h2 class="text-center mb-4">Edit Your Listing</h2>
+
+    <form method="POST" action="/listings/<%= listing._id %>?_method=PUT" class="needs-validation" novalidate
+      enctype="multipart/form-data">
+
+      <!-- Title -->
+      <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input type="text" id="title" name="listing[title]" value="<%= listing.title %>" placeholder="Enter title"
+          required class="form-control">
+        <div class="valid-feedback">Title looks good!</div>
+        <div class="invalid-feedback">Please enter a title.</div>
+      </div>
+
+      <!-- Description -->
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea id="description" name="listing[description]" placeholder="Enter description" required
+          class="form-control" rows="3"><%= listing.description %></textarea>
+        <div class="invalid-feedback">Please enter a short description.</div>
+      </div>
+
+      <div class="mb-3">
+        <img src="<%= originalImageUrl %>" alt="" width="300px">
+      </div>
+
+      <!-- Image URL -->
+      <div class="mb-3">
+        <label for="image" class="form-label">Upload new Image</label>
+        <input type="file" id="image" name="listing[image]" class="form-control">
+        <div class="invalid-feedback">Please enter a valid image URL.</div>
+      </div>
+
+      <!-- Price & Country-->
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label for="price" class="form-label">Price (₹)</label>
+          <input type="number" id="price" name="listing[price]" value="<%= listing.price %>" placeholder="Enter price"
+            required class="form-control">
+          <div class="invalid-feedback">Please enter a valid price.</div>
+        </div>
+
+        <div class="col-md-6">
+          <label for="country" class="form-label">Country</label>
+          <input type="text" id="country" name="listing[country]" value="<%= listing.country %>"
+            placeholder="Enter country" required class="form-control">
+          <div class="invalid-feedback">Country name should be valid.</div>
+        </div>
+      </div>
+
+      <!-- Location -->
+      <div class="mb-3">
+        <label for="location" class="form-label">Location</label>
+        <input type="text" id="location" name="listing[location]" value="<%= listing.location %>"
+          placeholder="Enter location" required class="form-control">
+        <div class="invalid-feedback">Location name should be valid.</div>
+      </div>
+      <select name="listing[category]" class="form-control">
+
+        <option value="trending" <%=listing.category==="trending" ? "selected" : "" %>>
+          Trending
+        </option>
+
+        <option value="rooms" <%=listing.category==="rooms" ? "selected" : "" %>>
+          Rooms
+        </option>
+
+        <option value="luxury" <%=listing.category==="luxury" ? "selected" : "" %>>
+          Luxury
+        </option>
+
+        <option value="hotels" <%=listing.category==="hotels" ? "selected" : "" %>>
+          Hotels
+        </option>
+        <option value="family" <%=listing.category==="family" ? "selected" : "" %>>
+          Family
+        </option>
+        <option value="Villa" <%=listing.category==="Villa" ? "selected" : "" %>>
+          Villa
+        </option>
+
+        <option value="mountain" <%=listing.category==="mountain" ? "selected" : "" %>>
+          Mountain
+        </option>
+
+        <option value="beach" <%=listing.category==="beach" ? "selected" : "" %>>
+          Beach
+        </option>
+
+        <option value="cabins" <%=listing.category==="cabins" ? "selected" : "" %>>
+          Cabins
+        </option>
+
+        <option value="pool" <%=listing.category==="pool" ? "selected" : "" %>>
+          Pool
+        </option>
+        
+      </select>
+      <button type="submit" class="btn btn-primary add-btn mb-3 mt-3">Save Changes</button>
+    </form>
+
+  </div>
+
+  <script src="/js/script.js"></script>

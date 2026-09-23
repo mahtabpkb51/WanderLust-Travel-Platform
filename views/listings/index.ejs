@@ -1,0 +1,101 @@
+<% layout("/layouts/boilerplate") %>
+    <link rel="stylesheet" href="/css/listings.css">
+
+    <body>
+        <div id="topBar">
+
+            <a href="/listings/filter/luxury" class="filter">
+                <i class="fa-solid fa-gem"></i>
+                <p>Luxury</p>
+            </a>
+
+            <a href="/listings/filter/family" class="filter">
+                <i class="fa-solid fa-people-group"></i>   
+                <p>Family</p>
+            </a>
+
+            <a href="/listings/filter/hotels" class="filter">
+                <div><i class="fa-solid fa-hotel"></i></div>
+                <p>Hotels</p>
+            </a>
+
+
+            <a href="/listings/filter/villa" class="filter">
+                <i class="fa-solid fa-house-chimney"></i>
+                <p>Villa</p>
+            </a>
+
+            <a href="/listings/filter/mountain" class="filter">
+                <div><i class="fa-solid fa-mountain-city"></i></div>
+                <p>Mountain</p>
+            </a>
+
+            <a href="/listings/filter/beach" class="filter">
+                <div><i class="fa-solid fa-umbrella-beach"></i></div>
+                <p>Beach</p>
+            </a>
+
+                 <a href="/listings/filter/trending" class="filter">
+                <div><i class="fa-solid fa-fire"></i></div>
+                <p>Trending</p>
+            </a>
+
+            <a href="/listings/filter/rooms" class="filter">
+                <div><i class="fa-solid fa-bed"></i></div>
+                <p>Rooms</p>
+            </a>
+
+            <a href="/listings/filter/cabins" class="filter">
+                <div><i class="fa-solid fa-house-chimney"></i></div>
+                <p>Cabins</p>
+            </a>
+
+            <a href="/listings/filter/pool" class="filter">
+                <div><i class="fa-solid fa-person-swimming"></i></div>
+                <p>Pool</p>
+            </a>
+
+            <!-- offer TOGGLE -->
+            <div id="offerBox">
+                <input class="form-check-input" type="checkbox" id="offerToggle" checked>
+                <label for="offerToggle" id="offerText" class="offer-label">
+                    View available offers
+                </label>
+            </div>
+        </div>
+
+        <!-- LISTINGS GRID -->
+        <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-4">
+
+            <% for(let listing of allListings) { %>
+                <a href="/listings/<%= listing._id %>" class="listing-link">
+                    <div class="listing-card card col mb-4">
+                        <img src="<%= listing.image.url %>" class="card-img-top" height="260px">
+
+                        <div class="card-body">
+                            <p class="card-text price-box">
+
+                                <b>
+                                    <%= listing.title %>
+                                </b><br>
+
+                                <span class="old-price" style="display:none">
+                                    ₹<%= listing.price.toLocaleString("en-IN") %>
+                                </span>
+
+                                <span class="new-price" data-price="<%= listing.price %>">
+                                    ₹<%= listing.price.toLocaleString("en-IN") %>
+
+                                </span>
+
+                                <span class="per-night"> / night</span>
+
+                                <span class="offers-text" style="display: none;">(15% OFF)</span>
+                            </p>
+                        </div>
+                    </div>
+                </a>
+                <% } %>
+        </div>
+        <script src="/js/offerToggle.js"></script>
+    </body>

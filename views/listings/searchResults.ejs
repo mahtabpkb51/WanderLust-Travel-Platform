@@ -1,0 +1,85 @@
+<style>
+  .listing-card {
+    height: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .listing-img {
+    width: 100%;
+    height: 230px;        
+    object-fit: cover;   
+    border-bottom: 1px solid #eee;
+  }
+
+  .listing-body {
+    flex-grow: 1;        
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+</style>
+
+<% layout("/layouts/boilerplate") %>
+
+<div class="container mt-4">
+
+  <div class="row">
+    <% if (listings.length === 0) { %>
+      <div class="text-center py-5">
+         <i class="fa-solid fa-magnifying-glass-location text-danger"
+           style="font-size:70px;"></i>
+             <h2 class="mt-4 fw-bold">
+            No Listings Found
+        </h2>
+
+
+        <p class="text-muted fs-5">
+            Sorry, we couldn't find any destination matching
+            <strong>"<%= query %>"</strong>.
+        </p>
+
+        <p class="text-secondary">
+            Try another city, country, or explore all available listings.
+        </p>
+         <div class="mt-4">
+
+            <a href="/listings"
+               class="btn btn-danger px-4 me-2">
+                Browse All Listings
+            </a>
+
+            <a href="javascript:history.back()"
+               class="btn btn-outline-dark px-4">
+                Go Back
+            </a>
+
+        </div>
+      </div>
+    <% } %>
+
+    <% listings.forEach(listing => { %>
+      <div class="col-12 col-sm-6 col-md-4 mb-4">
+        <div class="card listing-card">
+
+          <img src="<%= listing.image.url %>" class="listing-img">
+
+          <div class="listing-body">
+            <div>
+              <h5><%= listing.title %></h5>
+              <p class="text-muted"><%= listing.location %></p>
+            </div>
+
+            <a href="/listings/<%= listing._id %>" class="btn btn-danger mt-2">
+              View
+            </a>
+          </div>
+
+        </div>
+      </div>
+    <% }) %>
+  </div>
+</div>
